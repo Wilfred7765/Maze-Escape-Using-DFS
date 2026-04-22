@@ -57,7 +57,6 @@ pair<int,int> chooseBoundaryCell(const vector<vector<int>>& maze) {
         }
     }
 }
-
 // ----------------------------------------------------------
 // DO NOT MODIFY: Print the maze with S and E markers
 // ----------------------------------------------------------
@@ -123,56 +122,67 @@ bool dfs(int r, int c,
          vector<vector<int>>& parent_r,
          vector<vector<int>>& parent_c,
          int exit_r, int exit_c) {
-}
+    int N = maze.size();
+    int M = maze[0].size();
 
-// ----------------------------------------------------------
-// MAIN PROGRAM (students add DFS calls and logic)
-// ----------------------------------------------------------
-int main() {
-    int N, M;
+    if (r < 0 || r >= N || c < 0 || c >= M)
+        return false;
 
-    cout << "Enter maze dimensions N M: ";
-    cin >> N >> M;
+    if (maze[r][c] == 1)
+        return false;
 
-    vector<vector<int>> maze(N, vector<int>(M));
-    generateMaze(maze, N, M);
-
-    // Pick entrance and exit
-    pair<int,int> entrance = chooseBoundaryCell(maze);
-    pair<int,int> exitcell = chooseBoundaryCell(maze);
-
-    while (exitcell == entrance) {
-        exitcell = chooseBoundaryCell(maze);
     }
 
-    int ent_r = entrance.first;
-    int ent_c = entrance.second;
-    int exit_r = exitcell.first;
-    int exit_c = exitcell.second;
 
-    // Display the maze
-    printMaze(maze, ent_r, ent_c, exit_r, exit_c);
 
-    // Students must use these
-    vector<vector<bool>> visited(N, vector<bool>(M, false));
-    vector<vector<int>> parent_r(N, vector<int>(M, -1));
-    vector<vector<int>> parent_c(N, vector<int>(M, -1));
+    // ----------------------------------------------------------
+    // MAIN PROGRAM (students add DFS calls and logic)
+    // ----------------------------------------------------------
+    int main() {
+        int N, M;
 
-    // ------------------------------------------------------
-    // STUDENT WORK:
-    // Call your DFS, track visited, and fill parent_r and parent_c
-    // ------------------------------------------------------
-    // bool found = dfs(ent_r, ent_c, maze, visited, parent_r, parent_c, exit_r, exit_c);
+        cout << "Enter maze dimensions N M: ";
+        cin >> N >> M;
 
-    // ------------------------------------------------------
-    // STUDENT WORK:
-    // If found, print the path
-    // ------------------------------------------------------
-    // if (found) {
-    //     printPath(exitcell, parent_r, parent_c, ent_r, ent_c);
-    // } else {
-    //     cout << "\nNo path exists.\n";
-    // }
+        vector<vector<int>> maze(N, vector<int>(M));
+        generateMaze(maze, N, M);
 
-    return 0;
-}
+        // Pick entrance and exit
+        pair<int,int> entrance = chooseBoundaryCell(maze);
+        pair<int,int> exitcell = chooseBoundaryCell(maze);
+
+        while (exitcell == entrance) {
+            exitcell = chooseBoundaryCell(maze);
+        }
+
+        int ent_r = entrance.first;
+        int ent_c = entrance.second;
+        int exit_r = exitcell.first;
+        int exit_c = exitcell.second;
+
+        // Display the maze
+        printMaze(maze, ent_r, ent_c, exit_r, exit_c);
+
+        // Students must use these
+        vector<vector<bool>> visited(N, vector<bool>(M, false));
+        vector<vector<int>> parent_r(N, vector<int>(M, -1));
+        vector<vector<int>> parent_c(N, vector<int>(M, -1));
+
+        // ------------------------------------------------------
+        // STUDENT WORK:
+        // Call your DFS, track visited, and fill parent_r and parent_c
+        // ------------------------------------------------------
+        // bool found = dfs(ent_r, ent_c, maze, visited, parent_r, parent_c, exit_r, exit_c);
+
+        // ------------------------------------------------------
+        // STUDENT WORK:
+        // If found, print the path
+        // ------------------------------------------------------
+        // if (found) {
+        //     printPath(exitcell, parent_r, parent_c, ent_r, ent_c);
+        // } else {
+        //     cout << "\nNo path exists.\n";
+        // }
+
+        return 0;
+    }
