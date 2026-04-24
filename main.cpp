@@ -137,8 +137,16 @@ bool dfs(int r, int c,
     for (int i = 0; i < 4; i++) {
         int nr = r + dr[i];
         int nc = c + dc[i];
-    }
+        if (nr >= 0 && nr < N && nc >= 0 && nc < M &&
+    maze[nr][nc] == 0 && !visited[nr][nc]) {
 
+            parent_r[nr][nc] = r;
+            parent_c[nr][nc] = c;
+
+            if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c))
+                return true;
+    }
+    }
     }
 
 
