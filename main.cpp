@@ -134,6 +134,10 @@ bool dfs(int r, int c,
     visited[r][c] = true;
     if (r == exit_r && c == exit_c)
         return true;
+    for (int i = 0; i < 4; i++) {
+        int nr = r + dr[i];
+        int nc = c + dc[i];
+    }
 
     }
 
