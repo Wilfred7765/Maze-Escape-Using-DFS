@@ -145,9 +145,10 @@ bool dfs(int r, int c,
 
             if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c))
                 return true;
+
+    }
+    }
             return false;
-    }
-    }
     }
 
 
