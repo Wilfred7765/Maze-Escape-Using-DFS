@@ -1,6 +1,5 @@
 //
-// Created by Manju Muralidharan on 11/22/25.
-//
+// Created by Manju Muralidharan on 11/22/
 
 #include <iostream>
 #include <vector>
@@ -138,7 +137,8 @@ bool dfs(int r, int c,
         int nr = r + dr[i];
         int nc = c + dc[i];
         if (nr >= 0 && nr < N && nc >= 0 && nc < M &&
-    maze[nr][nc] == 0 && !visited[nr][nc]) {
+    !visited[nr][nc] &&
+    (maze[nr][nc] == 0 || (nr == exit_r && nc == exit_c))) {
 
             parent_r[nr][nc] = r;
             parent_c[nr][nc] = c;
