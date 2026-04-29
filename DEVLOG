@@ -1,1 +1,53 @@
+## 4/20/26
+Issue: 
+- Needed to create the DFS function
+Problem: 
+- Was unsure what parameters the function should take
+Fix: 
+- Added parameters for current position (r, c), maze, visited array, parent tracking, and exit position
+Result: 
+- DFS function is set up and works with any maze size
 
+## 4/21/26
+Issue: 
+- DFS was crashing and going out of bounds
+Problem: 
+- The function sometimes accessed invalid indices in the maze
+Fix: 
+- Added boundary checks and wall check
+Result:
+- DFS no longer crashes and correctly avoids walls
+
+## 4/22/26
+Issue: 
+- DFS was revisiting cells and not stopping at exit
+Problem:
+- Recursion kept looping through the same positions
+Fix: 
+- Added a visited check to return early if a cell was already visited mark current cell as visited, 
+added condition to return true when the exit cell is reached
+Result: 
+- DFS avoids revisits and stops when exit is found
+
+## 4/23/26
+Issue: 
+- DFS was not exploring all possible directions
+Problem: 
+- Movement to neighboring cells was not implemented
+Fix: 
+- Used a loop with dr and dc arrays to check all directions 
+Result: 
+- DFS now explores all valid neighboring cells
+
+## 4/24/26
+Issue: 
+- DFS was not finding and printing the correct path
+Problem: 
+- Moves were not properly checked and not handled properly in main
+Fix: 
+- Checked valid moves, set parent nodes before recursion, and returned true when a path was found
+Result: 
+- DFS now correctly finds a path and prints it
+
+## 4/25/26
+- Cleanup and fixes
